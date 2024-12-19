@@ -1,0 +1,33 @@
+{
+  "name": "animakuapi",
+  "version": "1.0.0",
+  "main": "src/AnimakuAPI.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "start": "node dist/AnimakuAPI.js",
+    "dev": "nodemon --exec ts-node -r tsconfig-paths/register src/AnimakuAPI.ts"
+  },
+  "keywords": [
+    "animaku",
+    "animeapi",
+    "api",
+    "animestreamapi",
+    "waifuapi"
+  ],
+  "author": "Angga7Togk",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/cheerio": "^0.22.35",
+    "nodemon": "^3.1.9",
+    "rimraf": "^6.0.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cheerio": "^1.0.0",
+    "ts-node": "^10.9.2"
+  }
+}
