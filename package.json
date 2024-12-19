@@ -1,7 +1,8 @@
 {
   "name": "animakuapi",
   "version": "1.0.0",
-  "main": "src/AnimakuAPI.ts",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
@@ -15,9 +16,13 @@
     "animestreamapi",
     "waifuapi"
   ],
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/angga7togk/AnimakuAPI"
+  },
   "author": "Angga7Togk",
-  "license": "ISC",
-  "description": "",
+  "license": "MIT",
+  "description": "anime stream api",
   "devDependencies": {
     "@types/cheerio": "^0.22.35",
     "nodemon": "^3.1.9",

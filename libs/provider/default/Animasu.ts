@@ -1,6 +1,6 @@
-import Provider, { AnimesParams } from "@/provider/Provider";
-import { AnimeDetail, AnimeSimple, Batch, Episode, Genre, Stream } from "@/types/AnimeTypes";
-import { ResponsePagination } from "@/types/ResponseType";
+import Provider, { AnimesParams } from "../../provider/Provider";
+import { AnimeDetail, AnimeSimple, Batch, Episode, Genre, Stream } from "../../types/AnimeTypes";
+import { ResponsePagination } from "../../types/ResponseType";
 import axios from "axios";
 import * as cheerio from "cheerio";
 

@@ -1,5 +1,5 @@
-import { AnimeDetail, AnimeSimple, Stream } from "@/types/AnimeTypes";
-import { ResponsePagination } from "@/types/ResponseType";
+import { AnimeDetail, AnimeSimple, Stream } from "../types/AnimeTypes";
+import { ResponsePagination } from "../types/ResponseType";
 
 export type AnimesParams = {
   search?: string;
