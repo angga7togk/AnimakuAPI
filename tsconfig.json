@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true
+    "target": "ESNext", // Target versi JavaScript
+    "module": "CommonJS", // Tipe module yang digunakan
+    "declaration": true, // Menghasilkan file .d.ts
+    "allowJs": true,
+    "declarationMap": true, // Menyertakan peta sumber (opsional)
+    "emitDeclarationOnly": false, // Output file JS dan .d.ts
+    "outDir": "./dist", // Folder keluaran file hasil build
+    "rootDir": "./src", // Folder sumber file TypeScript
+    "esModuleInterop": true // Dukungan untuk import default dari CommonJS
   },
-  "include": ["libs/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "tes"]
 }

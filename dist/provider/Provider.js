@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Provider {
+    name = "";
+    baseUrl = "";
     constructor(name, baseUrl) {
-        this.name = "";
-        this.baseUrl = "";
         this.name = name;
         this.baseUrl = baseUrl;
     }
