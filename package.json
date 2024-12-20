@@ -2,7 +2,7 @@
   "name": "animakuapi",
   "version": "1.0.5",
   "type": "commonjs",
-  "main": "./dist/index.ts",
+  "main": "dist/index.ts",
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc",
