@@ -4,3 +4,6 @@ node_modules/*
 dist
 dist/*
 .vercel
+
+test/node_modules
+test/node_modules/*

@@ -2,6 +2,7 @@ import {
   AnimeDetail,
   AnimeSimple,
   Batch,
+  Character,
   Episode,
   Genre,
   Stream,
@@ -261,8 +262,120 @@ async function getStreams(episodeSlug: string): Promise<Stream[]> {
   }
 }
 
+async function getGenres(): Promise<Genre[]> {
+  try {
+    const res = await axios.get(`${BASE_URL}/kumpulan-genre-anime-lengkap/`);
+    const $ = cheerio.load(res.data);
+    const genres: Genre[] = [];
+    $(".genrepage a").each((index, el) => {
+      const name = $(el).text().trim();
+      const url = $(el).attr("href") || "";
+      const slug = url.split("/")[4] || "";
+      genres.push({
+        name,
+        slug,
+        url,
+      });
+    });
+    return genres;
+  } catch (error) {
+    return [];
+  }
+}
+
+async function getCharacters(): Promise<Character[]> {
+  try {
+    const res = await axios.get(`${BASE_URL}/kumpulan-tipe-karakter-lengkap/`);
+    const $ = cheerio.load(res.data);
+    const genres: Character[] = [];
+    $(".genrepage a").each((index, el) => {
+      const name = $(el).text().trim();
+      const url = $(el).attr("href") || "";
+      const slug = url.split("/")[4] || "";
+      genres.push({
+        name,
+        slug,
+        url,
+      });
+    });
+    return genres;
+  } catch (error) {
+    return [];
+  }
+}
+
+async function getAnimesByDay(
+  day:
+    | "senin"
+    | "selasa"
+    | "rabu"
+    | "kamis"
+    | "jumat"
+    | "sabtu"
+    | "minggu"
+    | "random"
+): Promise<AnimeSimple[]> {
+  try {
+    const res = await axios.get(`${BASE_URL}/jadwal/`);
+    const $ = cheerio.load(res.data);
+    const animes: AnimeSimple[] = [];
+
+    $(".bixbox").each((index, el) => {
+      const $$ = $(el);
+      const $day = ($$.find(".releases h3 span").text().trim() || "")
+        .toLowerCase()
+        .replace("update acak", "random")
+        .replace("'", "");
+      if ($day == day) {
+        $(el)
+          .find(".bs")
+          .each((_index, _el) => {
+            const $$$ = $(_el);
+
+            const title = $$$.find(".tt").text().trim();
+            const link = $$$.find("a").attr("href");
+
+            const slug = link?.split("/")[4].trim() || "";
+
+            const image =
+              $$$.find("img").attr("data-src") ||
+              $$$.find("img").attr("src");
+            const type = $$$.find(".typez").text().trim();
+            const episode = $$$.find(".epx").text().trim();
+
+            let status = $$$.find(".sb").text().trim();
+            if (status == "🔥🔥🔥") {
+              status = "ONGOING";
+            } else if (status == "Selesai ✓") {
+              status = "COMPLETE";
+            } else {
+              status = "UPCOMING";
+            }
+
+            animes.push({
+              title,
+              slug,
+              link: link || "",
+              image: image || "",
+              type,
+              episode,
+              status: status as "COMPLETE" | "ONGOING" | "UPCOMING",
+            });
+          });
+      }
+    });
+
+    return animes;
+  } catch (error) {
+    return [];
+  }
+}
+
 export default {
   getAnimes,
   getAnime,
   getStreams,
-}
+  getGenres,
+  getCharacters,
+  getAnimesByDay
+};

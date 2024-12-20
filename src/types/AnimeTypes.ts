@@ -14,6 +14,12 @@ export interface Genre {
   url: string;
 }
 
+export interface Character {
+  name: string;
+  slug: string;
+  url: string;
+}
+
 export interface Episode {
   episode: string;
   slug: string;
