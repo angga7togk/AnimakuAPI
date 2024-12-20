@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "ESNext", // Target versi JavaScript
     "module": "CommonJS", // Tipe module yang digunakan
-    "declaration": true, // Menghasilkan file .d.ts
+    // "declaration": true, // Menghasilkan file .d.ts
     "allowJs": true,
-    "declarationMap": true, // Menyertakan peta sumber (opsional)
+    // "declarationMap": true, // Menyertakan peta sumber (opsional)
     "emitDeclarationOnly": false, // Output file JS dan .d.ts
     "outDir": "./dist", // Folder keluaran file hasil build
     "rootDir": "./src", // Folder sumber file TypeScript
