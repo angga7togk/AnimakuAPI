@@ -18,3 +18,5 @@ app.use("/animasu", animasu)
 app.listen(process.env.PORT || 3001, () => {
   console.warn("\nAnimakuAPI is running on http://localhost:3001");
 });
+
+export default app;
