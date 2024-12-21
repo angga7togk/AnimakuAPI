@@ -1,7 +1,7 @@
 {
   "name": "test",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "animaku": "file:../animaku-1.0.1.tgz",
     "animakuapi": "file:../animakuapi-1.0.5.tgz"
   }
 }

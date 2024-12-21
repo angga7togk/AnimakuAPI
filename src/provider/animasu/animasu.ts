@@ -6,8 +6,9 @@ import {
   Episode,
   Genre,
   Stream,
-} from "../../types/AnimeTypes";
-import { ResponsePagination, AnimesParams } from "../../types/types";
+  ResponsePagination,
+  AnimesParams,
+} from "../../index";
 import axios from "axios";
 import * as cheerio from "cheerio";
 
@@ -338,8 +339,7 @@ async function getAnimesByDay(
             const slug = link?.split("/")[4].trim() || "";
 
             const image =
-              $$$.find("img").attr("data-src") ||
-              $$$.find("img").attr("src");
+              $$$.find("img").attr("data-src") || $$$.find("img").attr("src");
             const type = $$$.find(".typez").text().trim();
             const episode = $$$.find(".epx").text().trim();
 
@@ -377,5 +377,5 @@ export default {
   getStreams,
   getGenres,
   getCharacters,
-  getAnimesByDay
+  getAnimesByDay,
 };
